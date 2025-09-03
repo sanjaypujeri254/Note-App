@@ -7,6 +7,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import Checkbox from '../components/Checkbox';
 
 interface FormData {
   fullName: string;
@@ -272,14 +273,10 @@ const SignUp: React.FC = () => {
               <p className="font-medium text-gray-900">{formData.email}</p>
             </div>
 
-            <Input
-              label="OTP"
-              type="text"
-              placeholder="Enter 6-digit OTP"
+            <Checkbox
               value={formData.otp}
-              onChange={(e) => handleInputChange('otp', e.target.value)}
+              onChange={(val) => handleInputChange("otp", val)}
               error={errors.otp}
-              maxLength={6}
             />
 
             <Button
